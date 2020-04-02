@@ -1,1 +1,49 @@
-<p>contacto works!</p>
+<div class="jumbotron">
+    <h1 class="display-4"><strong> Contactanos!!!!</strong> </h1>
+    <p class="lead">Estamos hubicados en Col. Centro, esquina con Portales #125, 52000, Toluca, Méx. <br>
+    Nuestros telefonos: 7226453066 y 7226453078</p>
+    <hr class="my-4">
+    <h5>Nos importa tu opinion, envianos tus comentarios.</h5>
+  <form [formGroup]="contacto" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" maxlength="30">
+    </div>
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" class="form-control" formControlName="tel" minlength="10" maxlength="10">
+      </div>
+    <div class="form-group">
+        <label>Correo</label>
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+    
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Comentarios</label>
+      <textarea class="form-control" formControlName="comentarios" rows="3"></textarea>
+    </div>
+    <button type="submit" data-toggle="modal" data-target="#exampleModal" [disabled]="!contacto.valid">Enviar</button>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Envio Exitoso!!!</h5>
+        </div>
+        <div class="modal-body">
+          Gracias por enviar tus comentarios, nos complace leer tus opiniones ya que asi mejoramos para ti.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <br>
+  </div>
+
+

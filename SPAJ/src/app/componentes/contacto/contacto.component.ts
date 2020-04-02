@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormArray, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contacto',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactoComponent implements OnInit {
 
-  constructor() { }
+  
+contacto: FormGroup;
+  
 
-  ngOnInit(): void {
+
+  constructor( private fb: FormBuilder ) { }
+
+  onSubmit() {
+    if (this.contacto.valid) {
+      console.log("contacto guardado!");
+      this.contacto.reset();
+    }
+  }
+
+  
+
+  ngOnInit() {
+
+    this.contacto = this.fb.group({
+      nombre: ['', Validators.required],
+      tel: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
+      email: ['', [Validators.required, Validators.email]],
+      comentarios: ['', Validators.required]
+    });
+    
   }
 
 }
