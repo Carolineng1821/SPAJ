@@ -1,0 +1,9 @@
+.barfoot{
+    background-color: mediumseagreen;
+    text-align: center;
+    padding: 2px;
+    position: absolute;
+    bottom: 0px;
+    height: 60px;
+    width: 100%;
+}
